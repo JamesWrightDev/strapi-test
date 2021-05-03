@@ -5,7 +5,7 @@ services:
     container_name: strapi
     image: strapi/strapi
     environment:
-      - VIRTUAL_HOST: "test.test.com"
+      - VIRTUAL_HOST=test.test.com
       - DATABASE_CLIENT=postgres
       - DATABASE_HOST=db
       - DATABASE_PORT=5432
@@ -29,8 +29,8 @@ services:
       POSTGRES_USER: strapi
       POSTGRES_PASSWORD: strapi
       POSTGRES_DB: strapi
-    
-    networks:
+
+  networks:
     default:
         external:
         name: nginx-proxy
