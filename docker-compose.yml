@@ -5,7 +5,6 @@ services:
     container_name: strapi
     image: strapi/strapi
     environment:
-      - VIRTUAL_HOST=test.test.com
       - DATABASE_CLIENT=postgres
       - DATABASE_HOST=db
       - DATABASE_PORT=5432
@@ -13,7 +12,7 @@ services:
       - DATABASE_USERNAME=strapi
       - DATABASE_PASSWORD=strapi
     expose:
-      - 80
+      - "1337:1337"
     volumes:
       - ./app:/srv/app
     depends_on:
@@ -29,8 +28,3 @@ services:
       POSTGRES_USER: strapi
       POSTGRES_PASSWORD: strapi
       POSTGRES_DB: strapi
-
-networks:
-    default:
-        external:
-            name: nginx-proxy
